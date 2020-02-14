@@ -1,4 +1,4 @@
-package test;
+package main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,22 @@ class ObjectTest {
 		
 		Assertions.assertTrue(list.get(0).area() == 6);
 		Assertions.assertTrue(list.get(1).area() == 9, "다형성, 상속에 의해 부모클래스의 정의를 자식 클래스에서 구현할 수 있다");
+	}
+	
+	@Test
+	void test_string_object() {
+		String s1 = new String("hello");
+		String s2 = "hello";
+		Assertions.assertEquals(s1, s2);
+	}
+	
+	@Test
+	void test_string_불변성() {
+		String s1 = "hello world";
+		String s2 = s1.substring(5);
+		Assertions.assertTrue(s1.equals("hello world"));
+		Assertions.assertFalse(s1.equals(s2));
+		
 	}
 }
 
