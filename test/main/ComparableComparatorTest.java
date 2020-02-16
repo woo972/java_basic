@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ComparableComparator {
+public class ComparableComparatorTest {
 
 	// compartor 객체가 없는 구현체 정렬 => 타입을 자연스러운 순서로 정렬
 	@Test
