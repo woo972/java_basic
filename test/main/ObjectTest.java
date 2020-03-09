@@ -51,9 +51,33 @@ class ObjectTest {
 	
 	@Test
 	void test_string_object() {
-		String s1 = new String("hello");
-		String s2 = "hello";
-		Assertions.assertEquals(s1, s2);
+		String s1 = new String("hello");  // new 키워드 생성 => 힙메모리에 등록
+		String s2 = "hello"; // 리터럴 생성 => 힙메모리 string pool에 등록
+		
+		// == 은 레퍼런스 비교이기 때문에 
+		Assertions.assertTrue(s1!=s2); 
+		
+		// String pool에 동일한 문자가 있으면 그것을 참조함
+		String s3 = "hello";
+		Assertions.assertTrue(s2==s3);
+		Assertions.assertTrue(s3=="hello");
+		
+		// primitive type 처럼 사용
+		String s4 = s2;
+		Assertions.assertTrue(s2==s4);
+		s4 = "world";
+		Assertions.assertTrue(s2!=s4);
+		String s5 = s1;
+		Assertions.assertTrue(s1==s5);
+		s5 = "world";
+		Assertions.assertTrue(s1!=s5);
+		
+		// String pool을 이용하지 않으므로 서로 다른 주소에 저장됨
+		String s6 = new String("hello");
+		Assertions.assertTrue(s1 != s6);
+		
+		
+		
 	}
 	
 	@Test
